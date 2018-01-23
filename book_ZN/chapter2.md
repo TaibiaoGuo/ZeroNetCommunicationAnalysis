@@ -37,17 +37,7 @@ Msgpack对于理解ZeroNet运行过程非常重要，本文附录有一个简单
 
 利用msgpack解码，我们得到了节点表的具体信息。
 
-```flow
-st => start:Start
-e => end:End
-op1 => operation:My Openration
-sub1 => subroutine:My Subroutine
-cond => condition: Yes or No
-io => inputoutput:catch something...
-st -> op1 -> cond
-cond(yes) -> io -> e
-cond(no) -> sub1(right) -> op1
-```
+
 
 
 
