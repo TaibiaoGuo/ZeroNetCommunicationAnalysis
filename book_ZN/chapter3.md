@@ -46,15 +46,15 @@ ZeroNet节点之间主要有三种通信会产生通信:
 
 | Return key      | Description                              |
 | --------------- | ---------------------------------------- |
-| crypt           | The encryption to use                    |
-| crypt_supported | An array of connection encryption methods supported by the server |
-| fileserver_port | The server's fileserver port             |
-| onion           | (only used on tor) The server's onion address |
-| protocol        | The protocol version the server uses(V1 or V2) |
-| port_opened     | The server's client port open status     |
-| peer_id         | (Not used on tor) The server's peer_id   |
-| rev             | The server's revision number             |
-| target_ip       | The client's network address             |
+| crypt           | 要使用的加密                    |
+| crypt_supported | 服务器支持的一系列连接加密方法 |
+| fileserver_port | 服务器的文件服务器端口            |
+| onion           | （仅用于tor）服务器的洋葱地址 |
+| protocol        | 服务器使用的协议版本（v1或v2） |
+| port_opened     | 服务器的客户端端口打开状态    |
+| peer_id         | (不用于tor)服务器的peer_id   |
+| rev             | 服务器的修订号             |
+| target_ip       | 客户的网络地址             |
 
 >注意：在.onion连接上不使用加密，因为Tor网络默认提供传输安全性。 注意：如果您可以假定远程客户端支持，也可以在握手之前隐式初始化SSL。
 
@@ -104,18 +104,18 @@ ZeroNet节点之间主要有三种通信会产生通信:
 
 |命令(cmd) | 意思|
 |---|---|
-|getFile||
-|streamFile||
-|ping||
-|pex||
-|update||
-|listModified||
-|getHashfield||
-|setHashfield||
-|findHashIds||
-|checkport||
-|getPieceFields||
-|setPieceFields||
+|getFile|从客户端请求一个文件|
+|streamFile|从客户端流式传输文件|
+|ping|检查客户是否还活着|
+|pex|与节点交换节点。对等打包到6个字节（使用inet_ntoa + 2byte作为端口的4字节IP）|
+|update|更新站点文件|
+|listModified|列出自给定参数后修改的content.json文件。它用来获取网站的用户提交的内容。|
+|getHashfield|获取客户端下载的可选文件ID|
+|setHashfield|设置请求者客户端具有的可选文件ID列表|
+|findHashIds|查询客户端是否知道具有请求的hash_ids的对等体|
+|checkport|检查对方的请求端口|
+|getPieceFields|返回客户端为该网站在字典中的所有大文件片段|
+|setPieceFields|设置该网站的客户的片段|
 
 
 ## ZeroNet 通信加密协议
