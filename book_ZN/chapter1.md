@@ -22,7 +22,7 @@ ZeroNet 使用 Bitcoin 加密算法以及 BitTorrent 技术以建立一个 **分
 
 * 简单, 无需配置即可运行.
 
-* 无需密码的基于 [BIP](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki%29\) 的认证: 使用和 Bitcoin wallet 相同的加密算法来保护你的账号.
+* 无需密码的基于 [BEP](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki%29\) 的认证: 使用和 Bitcoin wallet 相同的加密算法来保护你的账号.
 
 * 实时更新站点.
 
