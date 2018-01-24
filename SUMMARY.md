@@ -8,6 +8,19 @@
 * [ZeroNet缺点和改进](./book_ZN/chapter5.md)
 * [附录1：Msgpack简明教程](./book_ZN/appendix1.md)
 * [附录2：PT简介](./book_ZN/appendix2.md)
+* [附录3：DHT协议](./book_ZN/appendix3.md)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
