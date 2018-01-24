@@ -8,11 +8,11 @@ This paper analyzes the communication between ZeroNet peers and peers, between p
 
 # TODO
 
-- [] ZeroNet 简介
+- [ ] ZeroNet 简介
 
-- [] CS通信协议分析
+- [ ] CS通信协议分析
 
-- [] CC通信协议代码分析
+- [ ] CC通信协议代码分析
 
-- [] 缺点和改进
+- [ ] 缺点和改进
 
