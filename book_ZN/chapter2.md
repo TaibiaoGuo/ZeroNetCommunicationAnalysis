@@ -177,3 +177,51 @@ IPv4宣布响应：
 24 + 6 * n 16位整数TCP端口
 20 + 6 * N
 
+## 如何对ZeroNet的代码进行更新
+ZeroNet每次启动都会尝试连接
+
+```
+ urls = [
+        "https://github.com/HelloZeroNet/ZeroNet/archive/master.zip",
+        "https://gitlab.com/HelloZeroNet/ZeroNet/repository/archive.zip?ref=master",
+        "https://try.gogs.io/ZeroNet/ZeroNet/archive/master.zip"
+    ]
+```
+
+```
+Update site path: data/1UPDatEDxnvHDo7TXvq6AEBARfNkyfxsp, bad_files: 0
+Downloading from: https://github.com/HelloZeroNet/ZeroNet/archive/master.zip 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . Downloaded.
+Plugins enabled: ['AnnounceZero', 'Bigfile', 'Cors', 'CryptMessage', 'FilePack', 
+'MergerSite', 'Mute', 'Newsfeed', 'OptionalManager', 'PeerDb', 'Sidebar', 'Stats', 
+'TranslateSite', 'Trayicon', 'Zeroname'] disabled: ['Bootstrapper', 'Dnschain',
+ 'DonationMessage', 'Multiuser', 'StemPort', 'UiPassword', 'Zeroname-local']
+Extracting to D:\ZeroNet-master... . . . . . . . . . . . . . . P . P . P . P .
+ P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P 
+ . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . 
+ P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P 
+ . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . 
+ P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P
+  . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P 
+  . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P 
+  . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P . P 
+  . P . P . P . P . P . P . P . P . P .P . P . P . P . P . P . P . P . P . P .
+   P . P . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+       . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+       . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+       . . . . . . . . . Done.
+     Press enter to exit
+```
+
+通过update模块进行源代码升级，因此，这个模块我们要改为自己的代码源或者注释掉此模块。

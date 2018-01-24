@@ -117,9 +117,80 @@ ZeroNet节点之间主要有三种通信会产生通信:
 |getPieceFields||
 |setPieceFields||
 
+
 ## ZeroNet 通信加密协议
 
 ## ZeroNet 通信编码协议
+
+##一次完整的通信协议
+首先我们从建站开始，按照ZeroNet的说明建立了一个新的空站点`1KhbkxNXzJW9h3rxFXm5AmAwpQ6DifHumY`，网站内置的是初始的节点信息。我们的ZeroNet客户端会通知Tracker记录该站点。接下来，我们在局域网内的另外一台机器上访问此空战点，先从Tracker获取该站点的peer表，然后连接peer进行P2P下载。在拥有Peer表之后，以后该Peer 会之间和Peer表中的其他节点通信更新网站数据和获取新节点列表更新。
+
+在P2P部分，我们首先发送Handshark 命令，完成两个Peer之间的握手协议（ZeroNet自带），通过抓包，通信过程如下,以一个更新过程为例：
+
+对于数据更新操作是通过TCP连接，命令格式为JSON，命令和数据由Msgpack进行编码。先进行握手，文件内容，更新时间，支持的加密协议，作者签名等验证，通过’tls-rsa‘加密进行传输。
+
+`192.168.204.1 --> 192.168.204.130`
+
+```json
+..protocol.v2.fileserver_port.<Q.target_ip.192.168.204.1.port_opened..crypt..cmd.response.rev..j.to..version.0.6.0.crypt_supported..tls-rsa.peer_id.-ZN0060-YRkWn3hqTQwB..cmd.response.to..modified_files..content.json.Z].^..to..cmd.response.ok.."Thanks, file content.json updated!..cmd.streamFile.params..inner_path.services.html.read_bytes......file_size.#..site.."1KhbkxNXzJW9h3rxFXm5AmAwpQ6DifHumY.location..req_id...cmd.update.params..inner_path.content.json.body.@.{
+ "address": "1KhbkxNXzJW9h3rxFXm5AmAwpQ6DifHumY",
+ "address_index": 49513077,
+ "background-color": "#FFF",
+ "clone_root": "template-new",
+ "cloned_from": "1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D",
+ "description": "\u554a\u624b\u52a8\u9600\u6492\u65e6\u98de\u6d12\u5730\u65b9\u6492\u65e6\u53d1\u5c04\u70b9\u53d1\u6492\u65e6\u53d1\u5c04\u70b9\u53d1\u5c04\u70b9\u53d1",
+ "files": {
+ .......
+ },
+ "ignore": "",
+ "inner_path": "content.json",
+ "modified": 1516091926,
+ "postmessage_nonce_security": true,
+ "signers_sign": "HFvzFf5QvXl4I6cvKwTw040pQfBmGdS8MpEw/yBeJOrxBQndTvfh39p+8bdlpwEDdraf4g3cHvOQbDUxwC+Kyfc=",
+ "signs": {
+  "1KhbkxNXzJW9h3rxFXm5AmAwpQ6DifHumY": "GwDe6jV4UFaisemgNY+jOUNjSooJB08BlCbXEPQq2/U5egmKvIzLUlDJTGkDXqmfoJXIYOWW0Ir0yB7XeukQSsI="
+ },
+ "signs_required": 1,
+ "title": "my new site\u554a\u624b\u52a8\u9600\u624b\u52a8\u9600\u624b\u52a8\u9600\u6492\u65e6",
+ "translate": ["js/all.js"],
+ "zeronet_version": "0.6.0"
+}.site.."1KhbkxNXzJW9h3rxFXm5AmAwpQ6DifHumY.diffs..req_id.
+```
+
+`192.168.204.130 --> 192.168.204.1`
+
+```json
+..protocol.v2.fileserver_port.<Q.target_ip.192.168.204.1.port_opened..crypt..cmd.response.rev..j.to..version.0.6.0.crypt_supported..tls-rsa.peer_id.-ZN0060-YRkWn3hqTQwB..cmd.response.to..modified_files..content.json.Z].^..to..cmd.response.ok.."Thanks, file content.json updated!..cmd.streamFile.params..inner_path.services.html.read_bytes......file_size.#..site.."1KhbkxNXzJW9h3rxFXm5AmAwpQ6DifHumY.location..req_id...cmd.update.params..inner_path.content.json.body.@.{
+ "address": "1KhbkxNXzJW9h3rxFXm5AmAwpQ6DifHumY",
+ "address_index": 49513077,
+ "background-color": "#FFF",
+ "clone_root": "template-new",
+ "cloned_from": "1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D",
+ "description": "\u554a\u624b\u52a8\u9600\u6492\u65e6\u98de\u6d12\u5730\u65b9\u6492\u65e6\u53d1\u5c04\u70b9\u53d1\u6492\u65e6\u53d1\u5c04\u70b9\u53d1\u5c04\u70b9\u53d1",
+ "files": {
+  ......
+  }
+ },
+ "ignore": "",
+ "inner_path": "content.json",
+ "modified": 1516091926,
+ "postmessage_nonce_security": true,
+ "signers_sign": "HFvzFf5QvXl4I6cvKwTw040pQfBmGdS8MpEw/yBeJOrxBQndTvfh39p+8bdlpwEDdraf4g3cHvOQbDUxwC+Kyfc=",
+ "signs": {
+  "1KhbkxNXzJW9h3rxFXm5AmAwpQ6DifHumY": "GwDe6jV4UFaisemgNY+jOUNjSooJB08BlCbXEPQq2/U5egmKvIzLUlDJTGkDXqmfoJXIYOWW0Ir0yB7XeukQSsI="
+ },
+ "signs_required": 1,
+ "title": "my new site\u554a\u624b\u52a8\u9600\u624b\u52a8\u9600\u624b\u52a8\u9600\u6492\u65e6",
+ "translate": ["js/all.js"],
+ "zeronet_version": "0.6.0"
+}.site.."1KhbkxNXzJW9h3rxFXm5AmAwpQ6DifHumY.diffs..req_id.
+```
+
+```
+..protocol.v2.fileserver_port.<Q.target_ip.192.168.204.1.port_opened..crypt..cmd.response.rev..j.to..version.0.6.0.crypt_supported..tls-rsa.peer_id.-ZN0060-YRkWn3hqTQwB..cmd.response.to..modified_files..content.json.Z]....cmd.response.to..modified_files..content.json.Z]....to..cmd.response..to..cmd.response..to..cmd.response
+```
+
+经过验证，ZeroNet Peer 之间的通信在局域网内是正常的，数据在Peer 传输完成后Ui会显示站点已更新，刷新后可以看见更新。ZeroNet的15441是默认的站点发布端口，也是站点接收端口，只要存在数据库中的站点Peer端口间连接正常，数据就可以在Peer间传输。
 
 ## UPnP
 
