@@ -39,8 +39,7 @@ BitTorrent使用“分布式散布哈希表”（DHT）来存储“trackerless�
 
 ## UPnP
 
-**通用即插即用**（Universal Plug and Play，简称UPnP）是由“通用即插即用论坛”推广的一套网络协议。该协议的目标是使家庭网络（数据共享、通信和娱乐）和网络中各种设备能够相互无缝连接，并简化相关网络的实现。
-
+**通用即插即用**（Universal Plug and Play，简称UPnP）是由“通用即插即用论坛”推广的一套网络协议。该协议的目标是使家庭网络（数据共享、通信和娱乐）和网络中各种设备能够相互无缝连接，并简化相关网络的实现。相关的UPnP实现可以看这篇文章:[WANIPConnection:1 Service Template Version 1.01](http://www.upnp.org/specs/gw/UPnP-gw-WANIPConnection-v1-Service.pdf)
 UPnP体系允许PC间的点对点连接、网际互连和无线设备。它是一种基于TCP/IP、UDP和HTTP的分布式、开放体系。UPnP使得任意两个设备能在LAN控制设备的管理下相互通信。其特性包括：
 
 * 传输介质和设备独立。UPnP技术可以应用在许多媒体上，包括电话线、电线（电力线通信PLC）、以太网、红外通信技术（IrDA）、无线电（Wi-Fi，蓝牙）和Firewire（1394）。无需任务设备驱动；而是采用共同的协议。
