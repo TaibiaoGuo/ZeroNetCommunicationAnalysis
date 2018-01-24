@@ -9,14 +9,10 @@ This paper analyzes the communication between ZeroNet peers and peers, between p
 # TODO
 
 - [x] ZeroNet 简介
-
 - [x] CS通信协议分析
-
 - [ ] CC通信协议代码分析
-
 - [x] ZeroNet未实现的理念
-
-- [ ] 缺点和改进
+- [x] 缺点和改进
 
 You can read this e-book online in [HERE](https://taibiaoguo.gitbooks.io/zeronetcommunicationanalysis/content/)
 
