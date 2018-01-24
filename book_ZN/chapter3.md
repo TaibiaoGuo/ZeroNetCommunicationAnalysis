@@ -100,7 +100,22 @@ ZeroNet节点之间主要有三种通信会产生通信:
 通过握手这个过程，通信的节点双方知晓了双方的状态，接下来就可以利用双方都接受的通信过程来进行通信。
 
 ### cmd包含的请求命令
-在通信节点双方完成握手之后
+在通信节点双方完成握手之后下一步就是发送命令(cmd)了，ZeroNet定义了以下命令：
+
+|命令(cmd) | 意思|
+|---|---|
+|getFile||
+|streamFile||
+|ping||
+|pex||
+|update||
+|listModified||
+|getHashfield||
+|setHashfield||
+|findHashIds||
+|checkport||
+|getPieceFields||
+|setPieceFields||
 
 ## ZeroNet 通信加密协议
 
