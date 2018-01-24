@@ -24,9 +24,9 @@ PT 主要利用虚拟货币魔力值（Magic value）来维系 PT 社区的可�
 
 
 
-$$A = \sum_i s_i · (1 - 10^{(-\frac{T_1}{T_0}}) · (1 + \sqrt{2}· 10^{-\frac{N_i -1}{N_0 - 1}} ) )$$
+$$A = \sum_i s_i \times (1 - 10^{(-\frac{T_1}{T_0}}) \times (1 + \sqrt{2}· 10^{-\frac{N_i -1}{N_0 - 1}} ) )$$
 
-$$魔力值 = B = B_0 · \frac{2}{\pi} · arctan(\frac{A}{L})$$
+$$魔力值 = B = B_0 \times \frac{2}{\pi} \times arctan(\frac{A}{L})$$
 
 
 
