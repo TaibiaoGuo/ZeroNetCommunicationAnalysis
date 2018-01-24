@@ -18,3 +18,4 @@ This paper analyzes the communication between ZeroNet peers and peers, between p
 
 - [ ] 缺点和改进
 
+You can read this book online in [HERE](https://taibiaoguo.gitbooks.io/zeronetcommunicationanalysis/content/)
