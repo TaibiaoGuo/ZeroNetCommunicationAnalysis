@@ -14,6 +14,8 @@ RPC主要要解决三个问题：
 
 Call ID映射可以直接使用函数字符串，也可以使用整数ID。映射表一般就是一个哈希表。序列化反序列化可以自己写，也可以使用Protobuf或者FlatBuffers之类的。网络传输库可以自己写socket，或者用asio，ZeroMQ，Netty之类。最后，有兴趣的可以看我们自己写的一个小而精的RPC库 tinyrpc[hjk41/tinyrpc](https://link.zhihu.com/?target=https%3A//github.com/hjk41/tinyrpc)，对于理解RPC如何工作很有好处。
 
+# 什么时候上RPC
+
 我们在做一个访问量不大的项目时，一台服务器上部署一个应用+数据库就够了。
 
 那么在访问量稍微大一后，为了解决用户反馈的卡，反应慢的情况，我们就上集群。架设nginx，部署多个服务，由nginx负责把请求转发到其他服务上，这样就就解决了用户说的卡慢的问题。
